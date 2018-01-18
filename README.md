@@ -27,31 +27,31 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
   mWebView.addJavascriptInterface(new WebAppInterface(this), "Android");  //자바스크립트에서 WebAppInterface 클래스의 함수를 실행시키기 위한 설정
   
   ...
-  }
-  
-  public class WebAppInterface {  //자바스크립트에서 함수를 실행시키는 영역입니다
-      Context mContext;
-      NewscreenAD newscreenAD = new NewscreenAD(getApplicationContext());  //뉴스크린 정의
+ }
 
-      WebAppInterface(Context c) {
-          mContext = c;
-      }
+ public class WebAppInterface {  //자바스크립트에서 함수를 실행시키는 영역입니다
+     Context mContext;
+     NewscreenAD newscreenAD = new NewscreenAD(getApplicationContext());  //뉴스크린 정의
 
-      @JavascriptInterface
-      public void StopNewscreen() {   //javascript Android.StopNewscreen()로 실행
-          newscreenAD.stopAd();
-      }
+     WebAppInterface(Context c) {
+         mContext = c;
+     }
 
-      @JavascriptInterface
-      public void StartNewscreen() {  //javascript Android.StartNewscreen()로 실행
-          newscreenAD.init("뉴스크린 담당자에게 발급받은 sdk_key");
-      }
+     @JavascriptInterface
+     public void StopNewscreen() {   //javascript Android.StopNewscreen()로 실행
+         newscreenAD.stopAd();
+     }
 
-      @JavascriptInterface
-      public boolean CheckNewscreen() {  //javascript Android.CheckNewscreen()로 실행
-          return newscreenAD.isRunningNewscreen();
-      }
+     @JavascriptInterface
+     public void StartNewscreen() {  //javascript Android.StartNewscreen()로 실행
+         newscreenAD.init("뉴스크린 담당자에게 발급받은 sdk_key");
+     }
 
-  }
+     @JavascriptInterface
+     public boolean CheckNewscreen() {  //javascript Android.CheckNewscreen()로 실행
+         return newscreenAD.isRunningNewscreen();
+     }
+
+ }
 
 ```
