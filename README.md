@@ -22,14 +22,14 @@ html코드와 script코드 모두 삽입합니다.
 <!--jquery로 처리 되었습니다. 이미 추가되어있다면 생략하셔도 됩니다-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--뉴스크린 웹 스위치 영역 입니다. 그대로 사용하셔도 되고, 커스텀 디자인을 입히셔도 됩니다.-->
-<div style="background-color: #ffffff; width:100%; height:45px; margin-top: 10px; padding: 0 20px 0 20px;overflow: hidden;" >
+<div style="background-color: #ffffff; border: 1px solid #ececec; height:45px; padding: 5px 20px 0 20px;overflow: hidden;" >
     <div style="float:left; left:10%; height:45px; text-align: left;">
         <span style="color: #818181; font-weight: bold; font-size: 17px;">뉴스크린 </span><br>
         <span style="color: #909090; font-size: 12px;">뉴스크린 뉴스를 실시간으로 제공합니다.</span>
     </div>
     <div style="float:left; height:45px;">
-        <img id="newscreen_onoff_switch_back_img" style="position:absolute; right:5%; width:60px;" src="http://ad.news-screen.com/v7/images/onoff_switch_back_gray.png" onclick="newscreen_service_on_off();" >
-        <img id="newscreen_onoff_switch_toggle" style="position:absolute; right:11%; width:41px;" src="http://ad.news-screen.com/v7/images/onoff_switch_toggle.png" onclick="newscreen_service_on_off();" onload="newscreen_service_check();">
+        <img id="newscreen_onoff_switch_back_img" style="position:absolute; right:15px; width:60px;" src="http://ad.news-screen.com/v7/images/onoff_switch_back_gray.png" onclick="newscreen_service_on_off();" >
+        <img id="newscreen_onoff_switch_toggle" style="position:absolute; right:39px; width:41px;" src="http://ad.news-screen.com/v7/images/onoff_switch_toggle.png" onclick="newscreen_service_on_off();" onload="newscreen_service_check();">
     </div>
     <input type="hidden" id="newscreen_onoff_switch_state" value="off" />
 </div>
@@ -41,7 +41,7 @@ function newscreen_service_check(){
         var check_newscreen = Android.CheckNewscreen();     //안드로이드 뉴스크린 동작여부 확인 함수 호출
         if(check_newscreen == true){
             $("#newscreen_onoff_switch_state").val("on");
-            $('#newscreen_onoff_switch_toggle').css("right","4%");
+            $('#newscreen_onoff_switch_toggle').css("right","10px");
             $("#newscreen_onoff_switch_back_img").attr("src","http://ad.news-screen.com/v7/images/onoff_switch_back_blue.png");
         }
     }
@@ -54,7 +54,7 @@ function newscreen_service_on_off(){
             Android.StopNewscreen();           //안드로이드 뉴스크린 stop 함수호출
             $("#newscreen_onoff_switch_state").val("off");
             $('#newscreen_onoff_switch_toggle').animate({ 
-                right: '11%', 
+                right: '39px', 
              }, 300, function() {
                   $("#newscreen_onoff_switch_back_img").attr("src","http://ad.news-screen.com/v7/images/onoff_switch_back_gray.png");
              });
@@ -62,7 +62,7 @@ function newscreen_service_on_off(){
             Android.StartNewscreen();          //안드로이드 뉴스크린 start 함수호출
             $("#newscreen_onoff_switch_state").val("on");
             $('#newscreen_onoff_switch_toggle').animate({ 
-                right: '4%', 
+                right: '10px', 
              }, 300, function() {
                   $("#newscreen_onoff_switch_back_img").attr("src","http://ad.news-screen.com/v7/images/onoff_switch_back_blue.png");
              });
