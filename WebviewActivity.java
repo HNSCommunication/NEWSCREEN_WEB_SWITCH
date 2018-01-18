@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import com.tnplanet.newscreen_sdk.NewscreenAD;
 
 /**
- * Created by peachs on 2018. 1. 18..
+ *      해당 클래스는 예시를 위해 작성한 클래스 입니다. 설정에 따른 에러가 존재합니다.
  */
 
 public class WebviewActivity extends Activity {
