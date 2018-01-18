@@ -22,7 +22,10 @@ public class WebviewActivity extends Activity {
         setContentView(R.layout.activity);
 
         mWebView.getSettings().setJavaScriptEnabled(true);  //자바스크립트 enable
-        mWebView.addJavascriptInterface(new WebAppInterface(this), "Android");  //자바스크립트에서 WebAppInterface 클래스의 함수를 실행시키기 위한 설정
+        
+        //자바스크립트에서 WebAppInterface 클래스의 함수를 실행시키기 위한 설정입니다.
+        //"Android" 네임은 html에서 'Android.StartNewscreen()' 과 같이 함수를 실행시키기 위한 앞부분의 첨자 입니다.
+        mWebView.addJavascriptInterface(new WebAppInterface(this), "Android");  
 
     }
 
