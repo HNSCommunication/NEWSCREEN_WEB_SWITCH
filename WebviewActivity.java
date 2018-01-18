@@ -1,4 +1,4 @@
-package com.hnscom.endad_sample;
+
 
 import android.app.Activity;
 import android.content.Context;
