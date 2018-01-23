@@ -14,12 +14,16 @@
     </div>
     <div style="float:left; height:45px;">
         <img id="newscreen_onoff_switch_back_img" style="position:absolute; right:15px; width:60px;" src="http://ad.news-screen.com/v7/images/onoff_switch_back_gray.png" onclick="newscreen_service_on_off();" >
-        <img id="newscreen_onoff_switch_toggle" style="position:absolute; right:39px; width:41px;" src="http://ad.news-screen.com/v7/images/onoff_switch_toggle.png" onclick="newscreen_service_on_off();" onload="newscreen_service_check();">
+        <img id="newscreen_onoff_switch_toggle" style="position:absolute; right:39px; width:41px;" src="http://ad.news-screen.com/v7/images/onoff_switch_toggle.png" onclick="newscreen_service_on_off();">
     </div>
     <input type="hidden" id="newscreen_onoff_switch_state" value="off" />
 </div>
 
 <script>
+$(document).ready(function() {
+    newscreen_service_check();
+});
+        
 //뉴스크린 실행 여부 확인 
 function newscreen_service_check(){
     if(navigator.userAgent.toLowerCase().match(/android/)){
